@@ -4,6 +4,12 @@
 
 function showFortune(evt) {
   // TODO: get the fortune and show it in the #fortune-text div
+  fetch('/fortune')
+    .then(response => response.text()) // is this .json or .text ? 
+    .then(responseData => { 
+      document.querySelector('#fortune-text').innerText = responseData; 
+    }); 
+
 }
 
 document.querySelector('#get-fortune-button').addEventListener('click', showFortune);
